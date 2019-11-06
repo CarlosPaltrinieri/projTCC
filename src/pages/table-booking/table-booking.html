@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="title">{{'Book a Table' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="content-wrap">
+  <div class="side-headline">
+    <p class="heading"> {{'Select Date and Time to Book Table' | translate}}!</p>
+  </div>
+  <div class="order">
+    <ion-label class="form">&nbsp;&nbsp;{{'Select Date' | translate}}:</ion-label>
+    <div class="select-box">
+      <ion-item class="data-holder">
+        <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="bookingInfo.date">
+
+        </ion-datetime>
+        <ion-label>
+          <ion-icon name="calendar" class="icons"></ion-icon>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+  <!--order-->
+  <div class="order">
+    <ion-label class="form">&nbsp;&nbsp;{{'Select Time' | translate}}:</ion-label>
+    <div class="select-box">
+      <ion-item class="data-holder">
+        <ion-datetime displayFormat="hh-mm A" [(ngModel)]="bookingInfo.time"></ion-datetime>
+        <ion-label>
+          <ion-icon name="time" class="icons"></ion-icon>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+  <!--order-->
+  <div class="order">
+    <ion-label class="form">&nbsp;&nbsp;{{'Select No. of Guests' | translate}}:</ion-label>
+    <div class="select-box">
+      <ion-item class="data-holder">
+        <!-- <ion-item> -->
+        <ion-label>{{'No. of Guests' | translate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-label>
+        <ion-select [(ngModel)]="bookingInfo.person">
+          <ion-option value="1">{{'1 person' | translate}}</ion-option>
+          <ion-option value="2">{{'2 person' | translate}}</ion-option>
+          <ion-option value="3">{{'3 person' | translate}}</ion-option>
+          <ion-option value="4">{{'4 person' | translate}}</ion-option>
+          <ion-option value="5">{{'5 person' | translate}}</ion-option>
+          <ion-option value="5+">{{'5+ person' | translate}}</ion-option>
+        </ion-select>
+        <!-- </ion-item> -->
+      </ion-item>
+    </div>
+    <!--select-box-->
+  </div>
+  <!--order-->
+  <div class="btn-wrap">
+    <button ion-button full type="button" class="book-button" (click)="onClickBookTable()">{{'Reserve a Table' | translate}}</button>
+  </div>
+</ion-content>
