@@ -7,6 +7,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { TwitterConnect } from '@ionic-native/twitter-connect';
 import { RegistrationService } from './registration.service';
 import { SocketService } from '../../providers/socket-service';
+import { BrMaskerModule } from 'br-mask';
 
 @IonicPage()
 @Component({
@@ -26,7 +27,8 @@ export class RegistrationPage {
     public twitter: TwitterConnect,
     public platform: Platform,
     public registrationService: RegistrationService,
-    public socketService: SocketService) {
+    public socketService: SocketService,
+    public brmasker: BrMaskerModule) {
   }
 
   onRegister() {
@@ -61,8 +63,8 @@ export class RegistrationPage {
       phone: ['', Validators.required],
       password: ['', Validators.required],
       birth: ['', Validators.required],
-      secondName: ['', Validators.required]
-
+      secondName: ['', Validators.required],
+      cpf: ['', Validators.required]
     });
   }
 
@@ -70,26 +72,26 @@ export class RegistrationPage {
     this.navCtrl.push("LoginPage");
   }
 
-  doFbLogin() {
-      let permissions = new Array();
-      permissions = ["public_profile", "email", "user_education_history"];
-      this.facebook.login(permissions)
-          .then((success) => {
-              this.facebook.api("/me?fields=id,name,email,gender,first_name,last_name", permissions).then((user) => {
-                  //here post data to Api
-                  localStorage.setItem('token', user.id);
-                  this.displayToast('User Successfully registered!', 5000);
-                  this.navCtrl.setRoot("HomePage");
-              }),
-                  (error) => {
-                      console.log(JSON.stringify(error));
-                  }
+  // doFbLogin() {
+  //     let permissions = new Array();
+  //     permissions = ["public_profile", "email", "user_education_history"];
+  //     this.facebook.login(permissions)
+  //         .then((success) => {
+  //             this.facebook.api("/me?fields=id,name,email,gender,first_name,last_name", permissions).then((user) => {
+  //                 //here post data to Api
+  //                 localStorage.setItem('token', user.id);
+  //                 this.displayToast('User Successfully registered!', 5000);
+  //                 this.navCtrl.setRoot("HomePage");
+  //             }),
+  //                 (error) => {
+  //                     console.log(JSON.stringify(error));
+  //                 }
 
-          }, error => {
-              console.log("FaceBook ERROR : ", JSON.stringify(error));
-              this.displayToast(error, 5000);
-          })
-  }
+  //         }, error => {
+  //             console.log("FaceBook ERROR : ", JSON.stringify(error));
+  //             this.displayToast(error, 5000);
+  //         })
+  // }
 
   googleLogin() {
       this.googlePlus.login({

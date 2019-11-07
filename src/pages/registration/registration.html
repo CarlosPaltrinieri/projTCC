@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar hideBackButton="true">
+  <ion-navbar hideBackButton="false">
     <ion-title>{{ "Cadastro" | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,42 +10,81 @@
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-input type="text" formControlName="name" placeholder="Nome"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="name"
+            placeholder="Nome"
+          ></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-input type="text" formControlName="secondName" placeholder="Sobrenome"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="secondName"
+            placeholder="Sobrenome"
+          ></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-input type="date" formControlName="birth" placeholder="Data de Nascimento"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="cpf"
+            placeholder="CPF"
+            [brmasker]="{person: true}"
+            maxlength="14"
+          ></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-input type="number" formControlName="phone" placeholder="Telefone/Celular"></ion-input>
+          <ion-datetime
+          displayFormat="DD/MM/YYYY"
+          formControlName="birth"
+          placeholder="Data de Nascimento">
+          </ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-input type="text" formControlName="email" placeholder="E-mail"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="phone"
+            placeholder="Telefone/Celular"
+            [brmasker]="{phone: true}"
+            maxlength="15"
+          ></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-input type="password" formControlName="password" placeholder="Senha"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="email"
+            placeholder="E-mail"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-input
+            type="password"
+            formControlName="password"
+            placeholder="Senha"
+          ></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -71,9 +110,9 @@
   </ion-row>
   <ion-row>
     <ion-col col-12 text-center>
-      <span (click)="doFbLogin()">
+      <!-- <span (click)="doFbLogin()">
         <img class="social-icon" src="assets/img/fb.png" />
-      </span>
+      </span> -->
       <span (click)="googleLogin()">
         <img class="social-icon" src="assets/img/g+.png" />
       </span>

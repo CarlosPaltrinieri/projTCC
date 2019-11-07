@@ -2,6 +2,7 @@ import { TranslaterCustomModule } from './../../app/translate.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { RegistrationPage } from './registration';
+import { BrMaskerModule } from 'br-mask';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { RegistrationPage } from './registration';
   ],
   imports: [
     IonicPageModule.forChild(RegistrationPage),
-    TranslaterCustomModule
+    TranslaterCustomModule,
+    BrMaskerModule
   ],
   exports: [
     RegistrationPage
