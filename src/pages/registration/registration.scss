@@ -1,20 +1,25 @@
 page-registration {
+  button {
+    font-weight: bold;
+  }
   .item {
-    background-color: $white;
+    background-color: transparent;
     width: 80%;
     display: block;
     margin: 0 auto;
     border-radius: 5px;
   }
   .item.item-block .item-inner {
-    border-bottom: 0px;
+    border-bottom: 1px solid $primary;
+    width: 100%;
+    color: $white-b;
   }
   .item-input .label {
-    color: $dark;
+    color: $white-b;
   }
   .login {
-    background-color: $white-b;
-    color: $white;
+    background-color: $background;
+    color: $white-b;
     .logo {
       width: 86px;
       display: block;
@@ -30,6 +35,16 @@ page-registration {
     border-radius: 5px;
     height: 4.4rem;
     background-color: $primary;
+    color: $dark;
+  }
+  .confirm-btn{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    height: 4.4rem;
+    background-color: $violet !important;
+    color: $white;
   }
   .social-icon {
     width: 86px;

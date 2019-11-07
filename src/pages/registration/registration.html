@@ -10,51 +10,61 @@
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-label>{{ "Nome:" | translate }}</ion-label>
-          <ion-input type="text" formControlName="name"></ion-input>
+          <ion-input type="text" formControlName="name" placeholder="Nome"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-label>{{ "Email:" | translate }}</ion-label>
-          <ion-input type="email" formControlName="email"></ion-input>
+          <ion-input type="text" formControlName="secondName" placeholder="Sobrenome"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-label>{{ "Mobile No:" | translate }}</ion-label>
-          <ion-input type="number" formControlName="phone"></ion-input>
+          <ion-input type="date" formControlName="birth" placeholder="Data de Nascimento"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <ion-item>
-          <ion-label>{{ "Password:" | translate }}</ion-label>
-          <ion-input type="password" formControlName="password"></ion-input>
+          <ion-input type="number" formControlName="phone" placeholder="Telefone/Celular"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="text" formControlName="email" placeholder="E-mail"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="password" formControlName="password" placeholder="Senha"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <button
-          class="login-btn"
+          class="confirm-btn"
           ion-button
           type="submit"
           [disabled]="!user.valid"
         >
-          {{ "Register" | translate }}
+          {{ "Confirmar" | translate }}
         </button>
       </ion-col>
     </ion-row>
   </form>
   <ion-row>
     <ion-col col-12>
-      <button color="primary" class="login-btn" ion-button (click)="navLogin()">
+      <button class="login-btn" ion-button (click)="navLogin()">
         {{ "Já sou cadastrado" | translate }}
       </button>
     </ion-col>
@@ -69,5 +79,4 @@
       </span>
     </ion-col>
   </ion-row>
-  
 </ion-content>

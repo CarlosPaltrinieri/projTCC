@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar hideBackButton="true">
-    <!-- <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button> -->
     <ion-title>{{ "Nome sistema" | translate }} </ion-title>
   </ion-navbar>
 </ion-header>
@@ -33,7 +30,7 @@
       <ion-col col-12>
         <button
           color="primary"
-          class="login-btn"
+          class="confirm-btn"
           ion-button
           [disabled]="!user.valid">
           {{ "Login" | translate }}

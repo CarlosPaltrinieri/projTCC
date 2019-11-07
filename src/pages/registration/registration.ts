@@ -40,7 +40,7 @@ export class RegistrationPage {
         localStorage.setItem('token', "bearer " + user.token);
         this.navCtrl.setRoot("HomePage");
         this.socketService.establishConnection();
-        this.displayToast('User Successfully registered!', 5000);
+        this.displayToast('Usuário registrado com sucesso!', 5000);
       }, error => {
         loader.dismiss();
       })
@@ -60,6 +60,8 @@ export class RegistrationPage {
       email: ['', Validators.required],
       phone: ['', Validators.required],
       password: ['', Validators.required],
+      birth: ['', Validators.required],
+      secondName: ['', Validators.required]
 
     });
   }
@@ -68,44 +70,44 @@ export class RegistrationPage {
     this.navCtrl.push("LoginPage");
   }
 
-  // doFbLogin() {
-  //     let permissions = new Array();
-  //     permissions = ["public_profile", "email", "user_education_history"];
-  //     this.facebook.login(permissions)
-  //         .then((success) => {
-  //             this.facebook.api("/me?fields=id,name,email,gender,first_name,last_name", permissions).then((user) => {
-  //                 //here post data to Api
-  //                 localStorage.setItem('token', user.id);
-  //                 this.displayToast('User Successfully registered!', 5000);
-  //                 this.navCtrl.setRoot("HomePage");
-  //             }),
-  //                 (error) => {
-  //                     console.log(JSON.stringify(error));
-  //                 }
+  doFbLogin() {
+      let permissions = new Array();
+      permissions = ["public_profile", "email", "user_education_history"];
+      this.facebook.login(permissions)
+          .then((success) => {
+              this.facebook.api("/me?fields=id,name,email,gender,first_name,last_name", permissions).then((user) => {
+                  //here post data to Api
+                  localStorage.setItem('token', user.id);
+                  this.displayToast('User Successfully registered!', 5000);
+                  this.navCtrl.setRoot("HomePage");
+              }),
+                  (error) => {
+                      console.log(JSON.stringify(error));
+                  }
 
-  //         }, error => {
-  //             console.log("FaceBook ERROR : ", JSON.stringify(error));
-  //             this.displayToast(error, 5000);
-  //         })
-  // }
+          }, error => {
+              console.log("FaceBook ERROR : ", JSON.stringify(error));
+              this.displayToast(error, 5000);
+          })
+  }
 
-  // googleLogin() {
-  //     this.googlePlus.login({
-  //         'scopes': '',
-  //         'webClientId': '557859355960-r2petg57jjsomcvkbs0bc4401n57l9ja.apps.googleusercontent.com',
-  //         'offline': true
-  //     })
-  //         .then((success) => {
-  //             //here post data to Api
-  //             localStorage.setItem('token', success.userId);
-  //             this.displayToast('User Successfully registered!', 5000);
-  //             this.navCtrl.setRoot("HomePage");
-  //         },
-  //         (error) => {
-  //             console.log('error' + JSON.stringify(error));
-  //             this.displayToast(error, 5000);
-  //         })
-  // }
+  googleLogin() {
+      this.googlePlus.login({
+          'scopes': '',
+          'webClientId': '557859355960-r2petg57jjsomcvkbs0bc4401n57l9ja.apps.googleusercontent.com',
+          'offline': true
+      })
+          .then((success) => {
+              //here post data to Api
+              localStorage.setItem('token', success.userId);
+              this.displayToast('User Successfully registered!', 5000);
+              this.navCtrl.setRoot("HomePage");
+          },
+          (error) => {
+              console.log('error' + JSON.stringify(error));
+              this.displayToast(error, 5000);
+          })
+  }
 
   // twitterLogin() {
   //     this.platform.ready().then((res) => {
