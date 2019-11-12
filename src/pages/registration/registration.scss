@@ -1,12 +1,12 @@
 page-registration {
-  .datetime-md{
-    padding:5px;
-  }
-  .datetime-ios{
-    padding: 5px;
-  }
   button {
     font-weight: bold;
+  }
+  .text-input {
+    padding-left: 8px !important;
+  }
+  .text-input-ios{
+    padding-left: 15px !important;
   }
   .item {
     background-color: transparent;
@@ -43,7 +43,7 @@ page-registration {
     background-color: $primary;
     color: $dark;
   }
-  .confirm-btn{
+  .confirm-btn {
     width: 80%;
     display: block;
     margin: 0 auto;
