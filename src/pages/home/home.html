@@ -1,56 +1,22 @@
-<ion-content>
-  <ion-grid class="grid">
+
+<ion-footer>
+  <ion-navbar hideBackButton="true">
     <ion-row>
-      <!-- first row -->
-      <ion-slides
-        initialSlide="0"
-        speed="3000"
-        loop="true"
-        pager="true"
-        dir="rtl"
-      >
-        <ion-slide *ngFor="let feature of featured">
-          <div class="overlay">
-            <img src="{{feature.thumb}}" class="slider-img" />
-          </div>
-          <!--overlay-->
-          <div class="card-title">{{'Featured Product' | translate}}</div>
-        </ion-slide>
-      </ion-slides>
-    </ion-row>
-    <!-- first row -->
-    <!-- second-row -->
-    <h2 text-center>{{'Categories' | translate}}</h2>
-    <ion-row class="categories">
-      <ion-col
-        col-6
-        *ngFor="let category of categories"
-        (click)="navigate(category._id)"
-      >
-        <img src="{{category.thumb}}" />
-        <p class="text-over-img">{{category.title}}</p>
+      <ion-col col-4>
+        <button ion-button class="toolbar-button">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4 >
+        <button ion-button class="toolbar-button" (click)="">
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button class="toolbar-button">
+          <ion-icon name="person"></ion-icon>
+        </button>
       </ion-col>
     </ion-row>
-  </ion-grid>
-</ion-content>
-<ion-footer>
-    <ion-navbar hideBackButton="true">
-      <ion-row>
-        <ion-col col-4 >
-          <button ion-button menuToggle >
-            <ion-icon name="menu"></ion-icon>
-          </button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button menuToggle >
-            <ion-icon name="search"></ion-icon>
-          </button>
-        </ion-col>
-        <ion-col col-4 >
-          <button ion-button menuToggle >
-            <ion-icon name="person" ></ion-icon>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-navbar>
-  </ion-footer>
+  </ion-navbar>
+</ion-footer>
